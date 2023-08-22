@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      position: 0;
+    }
+
+    .loading-mask {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+    }
+
+    .loading-text {
+      color: #fff;
+      font-size: 32px;
+    }
+
+    @keyframes upDown {
+      0% {
+        transform: translateY(0px);
+      }
+
+      20% {
+        transform: translateY(-24px);
+      }
+
+      40%,
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .loading-text span {
+      display: inline-block;
+      animation: upDown 1.5s ease-in-out infinite;
+      animation-delay: calc(.1s*var(--i));
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="loading-mask">
+    <div class="loading-text">
+      <span style="--i:1">拼</span>
+      <span style="--i:2">命</span>
+      <span style="--i:3">加</span>
+      <span style="--i:4">载</span>
+      <span style="--i:5">中</span>
+      <span style="--i:6">.</span>
+      <span style="--i:7">.</span>
+      <span style="--i:8">.</span>
+    </div>
+  </div>
+</body>
+
+</html>

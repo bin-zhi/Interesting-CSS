@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 30px;
+    }
+
+    .percent {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .percent svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .percent svg circle {
+      width: 100%;
+      width: 100%;
+      fill: none;
+      stroke-width: 10;
+      stroke: #000;
+      transform: translate(5px, 5px);
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+      transition: all .5s;
+    }
+
+    .percent svg circle:nth-child(1) {
+      stroke-dashoffset: 0;
+      stroke: #f3f3f3;
+    }
+
+    .percent svg circle:nth-child(2) {
+      stroke-dashoffset: calc(440 - 440 * (20 / 100));
+      stroke: #21a0ff;
+    }
+
+    .percent .number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+
+    .percent .number span:nth-child(1) {
+      font-size: 48px;
+    }
+
+    .percent .number span:nth-child(2) {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="percent">
+    <svg>
+      <circle cx="70" cy="70" r="70"></circle>
+      <circle id="circle" cx="70" cy="70" r="70"></circle>
+    </svg>
+    <div class="number">
+      <h3>
+        <span id="percent">20</span>
+        <span>%</span>
+      </h3>
+    </div>
+  </div>
+
+  <script>
+
+    let percent = 20
+    const percentBox = document.querySelector('#percent')
+    const circle = document.querySelector('#circle')
+    const timer = setInterval(() => {
+      percent += Math.ceil(Math.random() * 30)
+      if (percent > 100) {
+        percent = 100
+        clearInterval(timer)
+      }
+      percentBox.innerHTML = percent
+      circle.style.strokeDashoffset = `calc(440 - 440 * (${percent} / 100))`
+    }, 1500)
+
+  </script>
+
+
+</body>
+
+</html>

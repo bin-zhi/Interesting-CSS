@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    .inputBox {
+      position: relative;
+      width: 250px;
+    }
+
+    .inputBox input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+      outline: none;
+    }
+
+    .inputBox span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 10px;
+      color: #ccc;
+      font-size: 1em;
+      pointer-events: none;
+      transition: all 0.5s;
+    }
+
+    .inputBox input:valid~span,
+    .inputBox input:focus~span {
+      color: orange;
+      transform: translateX(10px) translateY(-7px);
+      font-size: 0.65em;
+      padding: 0 10px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="inputBox">
+    <input type="text" required>
+    <span>Your Name</span>
+  </div>
+
+</body>
+
+</html>
