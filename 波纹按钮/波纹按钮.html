@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 15px;
+    }
+
+    button {
+      overflow: hidden;
+      position: relative;
+      padding: 12px 36px;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 40px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(90deg, #0162c8, #55e7fc);
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0;
+      opacity: 0.5;
+      background-color: #fff;
+      pointer-events: none;
+      border-radius: 50%;
+      animation: animate 1s linear infinite;
+    }
+
+    @keyframes animate {
+      100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <button>
+    Click Me~
+  </button>
+
+  <script>
+    // 获取按钮
+    const button = document.querySelector('button')
+
+    // 1. 注册点击事件
+    button.addEventListener('click', function (e) {
+      // 2. 计算波纹按钮所需要的坐标 → 找出光标相对于按钮的位置
+      let boundingBox = this.getBoundingClientRect()
+      let x = e.clientX - boundingBox.left
+      let y = e.clientY - boundingBox.top
+
+      // 3. 动态创建波纹按钮, 添加到盒子中
+      let ripple = document.createElement('span')
+      ripple.style.left = x + 'px'
+      ripple.style.top = y + 'px'
+      this.appendChild(ripple)
+
+      // 4. 在1秒动画后移除波纹
+      setTimeout(() => ripple.remove(), 1000)
+    })
+  </script>
+
+</body>
+
+</html>
