@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .mask {
+      height: 100vh;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 150px;
+    }
+
+    @keyframes blurOut {
+      0% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1);
+      }
+
+      30% {
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(2);
+      }
+
+      60%,
+      100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1);
+      }
+    }
+
+    .mask span {
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
+      display: inline-block;
+      animation: blurOut 4s ease-in-out infinite;
+      animation-delay: calc(.2s*var(--i));
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mask">
+    <span style="--i:1">W</span>
+    <span style="--i:2">E</span>
+    <span style="--i:3">L</span>
+    <span style="--i:4">C</span>
+    <span style="--i:5">O</span>
+    <span style="--i:6">M</span>
+    <span style="--i:7">E</span>
+  </div>
+</body>
+
+</html>
