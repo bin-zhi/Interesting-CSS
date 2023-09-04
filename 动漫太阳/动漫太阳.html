@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ball {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: pink;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px #fff,
+        -10px 0 80px #ff0,
+        -10px 0 40px #ff2039,
+        inset 0 0 50px #fff,
+        inset -50px 0 80px #ff0,
+        inset 20px 0 50px #ff2039,
+        inset -50px 0 200px #ff0,
+        inset 20px 0 50px #ff2039;
+    }
+
+    body {
+      background-color: #000;
+    }
+
+    @keyframes sun {
+      50% {
+        box-shadow: 0 0 50px #fff,
+          -10px 0 80px #ff2039,
+          -10px 0 80px #ff0,
+          inset 0 0 50px #fff,
+          inset -50px 0 80px #ff0,
+          inset 80px 0 80px #ff2039,
+          inset -50px 0 200px #ff2039,
+          inset 50px 0 200px #ff0;
+      }
+    }
+
+    .ball {
+      animation: sun 4s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ball"></div>
+</body>
+
+</html>
