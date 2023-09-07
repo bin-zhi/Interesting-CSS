@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流光卡片</title>
+  <style>
+    /* 1.去除默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 初始化body，给背景色 */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #0c1022;
+    }
+
+    /* 1.盒子的大小，背景色，居中和超出隐藏 */
+    .box {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background: rgba(0, 0, 0, .75);
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* 2.前后加上伪元素并添加动画，让其中一个动画直接执行2秒后的效果*/
+    .box::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background-image: conic-gradient(transparent, transparent, transparent, #de44d4);
+      animation: animate 4s linear infinite;
+      animation-delay: -2s;
+    }
+
+    .box::before {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background-image: conic-gradient(transparent, transparent, transparent, #00ccff);
+      animation: animate 4s linear infinite;
+    }
+
+    /* 4.定义动画 */
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 5.小盒子占满父盒子遮挡超出光效 预留5px流光效果 */
+    .box span {
+      position: absolute;
+      inset: 5px;
+      border-radius: 16px;
+      background: #0c1022;
+      z-index: 1;
+    }
+
+    /* 6.需要展示的内容显示 */
+    .box h2 {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      font-size: 10em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1.先写大盒子 -->
+  <div class="box">
+    <!-- 2.写个小盒子占满父盒子，留下四周边框5px -->
+    <span></span>
+    <!-- 3.中间需要展示的内容 -->
+    <h2>01</h2>
+  </div>
+</body>
+
+</html>
