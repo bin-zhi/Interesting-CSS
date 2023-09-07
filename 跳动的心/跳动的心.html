@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 设置 body 样式，让元素居中 */
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0b1522;
+    }
+
+    /* 设计爱心动画 */
+    @keyframes bounce {
+      0% {
+        transform: rotate(-45deg) scale(1.07);
+      }
+
+      80% {
+        transform: rotate(-45deg) scale(1);
+      }
+
+      100% {
+        transform: rotate(-45deg) scale(0.8);
+      }
+    }
+
+    /* 设置 heart 基本宽高底色 */
+    .heart {
+      width: 70px;
+      height: 70px;
+      background-color: #f20044;
+      position: relative;
+      transform: rotate(-45deg);
+      box-shadow: -10px 10px 90px #f20044;
+      animation: bounce .8s linear infinite;
+    }
+
+    /* 伪元素设置爱心左半圆 */
+    .heart::before {
+      content: '';
+      position: absolute;
+      height: 70px;
+      width: 70px;
+      background: #f20044;
+      top: -50%;
+      border-radius: 50px;
+      box-shadow: -10px 10px 90px #f20044;
+
+    }
+
+    /* 伪元素设置爱心右半圆 */
+    .heart::after {
+      content: '';
+      position: absolute;
+      height: 70px;
+      width: 70px;
+      background: #f20044;
+      right: -50%;
+      border-radius: 50px;
+      box-shadow: -10px 10px 90px #f20044;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 第一步：准备爱心结构和样式 -->
+  <div class="heart"></div>
+
+</body>
+
+</html>
