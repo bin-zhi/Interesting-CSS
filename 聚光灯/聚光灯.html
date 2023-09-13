@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* 1.去除默认样式 设置底色 */
+        *{
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+        }
+        /* 2.大盒子占满居中 */
+        .text{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* 3.文字基本样式 */
+        .text h2 {
+            font-size: 6em;
+            color: #333;
+            position: relative;
+        }
+        /* 4.变色文字样式 */
+        .text h2::after{
+            content: "SpotLight";
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* color: teal; */
+            /* clip-path: ellipse(100px 100px at 50% center); */
+            animation: animate 7s ease-in-out infinite;
+            background-image: linear-gradient(60deg, #00d0ff, #4dff03,#ff0058,#ffbc00,#ff0058);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        /* 5.聚光灯动画 */
+        @keyframes animate {
+            0%,100%{
+                clip-path: ellipse(100px 100px at 0% center); 
+            }
+            50%{
+                clip-path: ellipse(100px 100px at 100% center); 
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 静态结构 -->
+    <div class="text">  
+        <h2>SpotLight</h2>
+    </div>
+</body>
+</html>
