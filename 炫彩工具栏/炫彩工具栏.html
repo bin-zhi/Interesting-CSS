@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4090357_z2qpnic06um.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #303640;
+    }
+
+    .menu {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      position: absolute;
+      z-index: 1000;
+      width: 60px;
+      height: 60px;
+      background-color: #303640;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 1.25s;
+    }
+
+    .btn i {
+      font-size: 32px;
+    }
+
+
+    .menu span {
+      /* 基本大小 */
+      width: 40px;
+      height: 40px;
+      background-color: #303640;
+      color: var(--clr);
+      border: 2px solid var(--clr);
+      position: absolute;
+      left: 0;
+      /* 居中圆角 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+
+      transform-origin: 100px;
+      transition: .5s;
+      transition-delay: calc(.1s * var(--i));
+      transform: rotate(0deg) translateX(80px);
+    }
+
+    /* hover旋转的效果 */
+    .menu:hover span {
+      transform: rotate(calc(360deg / 8 * var(--i)));
+    }
+
+    /* 调整图标角度，保证旋转后是正的 */
+    .menu span i {
+      transform: rotate(calc(360deg / -8 * var(--i)));
+    }
+
+    .menu:hover .btn {
+      transform: rotate(315deg);
+    }
+
+    .menu span:hover {
+      background: var(--clr);
+      color: #333;
+      box-shadow:
+        0 0 10px var(--clr),
+        0 0 30px var(--clr),
+        0 0 50px var(--clr);
+      transition: 0s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="menu active">
+    <div class="btn"><i class="iconfont icon-add"></i></div>
+    <span style="--i:0;--clr: #ff2972;">
+      <i class="iconfont icon-home"></i>
+    </span>
+    <span style="--i:1;--clr: #fee800;">
+      <i class="iconfont icon-more"></i>
+    </span>
+    <span style="--i:2;--clr: #04fc43;">
+      <i class="iconfont icon-gift"></i>
+    </span>
+    <span style="--i:3;--clr: #fe00f1;">
+      <i class="iconfont icon-setting"></i>
+    </span>
+    <span style="--i:4;--clr: #00b0fe;">
+      <i class="iconfont icon-message"></i>
+    </span>
+    <span style="--i:5;--clr: #fea600;">
+      <i class="iconfont icon-cart"></i>
+    </span>
+    <span style="--i:6;--clr: #a529ff;">
+      <i class="iconfont icon-money"></i>
+    </span>
+    <span style="--i:7;--clr: #01bdab;">
+      <i class="iconfont icon-star"></i>
+    </span>
+  </div>
+
+</body>
+
+</html>
